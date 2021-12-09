@@ -22,7 +22,7 @@ class Event(
         joinColumns = [JoinColumn(name = "EVENT_id")],
         inverseJoinColumns = [JoinColumn(name = "USER_id")]
     )
-    var participants: List<User>,
+    var participants: MutableList<User>,
 
     @Column(name = "name", nullable = false)
     var name: String,

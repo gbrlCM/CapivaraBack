@@ -3,6 +3,7 @@ package com.capivaragamer.capivaraback.controllers
 import com.capivaragamer.capivaraback.models.entities.Game
 import com.capivaragamer.capivaraback.models.repositories.GameRepository
 import org.springframework.web.bind.annotation.*
+import org.yaml.snakeyaml.events.Event
 
 @RestController
 class GameController(val repository: GameRepository){
@@ -15,6 +16,14 @@ class GameController(val repository: GameRepository){
     @RequestMapping(value = ["/game/create"], method = [RequestMethod.POST])
     fun create(@RequestBody newGame: Game ): Game{
         return repository.save(newGame)
+    }
+
+    @PostMapping("/game/createmany")
+    fun createMany(@RequestBody newGames:List<Game>): List<Game>{
+        newGames.forEach{
+            repository.save(it)
+        }
+        return newGames
     }
 
 }
