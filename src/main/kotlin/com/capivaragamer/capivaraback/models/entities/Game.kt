@@ -9,7 +9,7 @@ class Game(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "id", updatable = false, unique = true, nullable = false)
-        val id: UUID,
+        val id: UUID?,
         @Column(name = "name", nullable = false, unique = true)
         var name: String,
         @Column(name = "team_capacity", nullable = false)

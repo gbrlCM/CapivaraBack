@@ -9,7 +9,7 @@ class Address (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    var id: UUID,
+    var id: UUID?,
     @Column(name = "address_type")
     var type: String,
     @Column(name = "city")

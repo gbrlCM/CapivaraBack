@@ -10,7 +10,7 @@ class Event(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, unique = true, nullable = false)
-    val id: UUID,
+    val id: UUID?,
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "creator_id", nullable = false)
@@ -22,7 +22,7 @@ class Event(
         joinColumns = [JoinColumn(name = "EVENT_id")],
         inverseJoinColumns = [JoinColumn(name = "USER_id")]
     )
-    var participants: List<User>,
+    var participants: MutableList<User>,
 
     @Column(name = "name", nullable = false)
     var name: String,

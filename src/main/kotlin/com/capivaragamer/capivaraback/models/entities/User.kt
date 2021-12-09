@@ -10,7 +10,7 @@ class User (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, unique = true, nullable = false)
-    val id: UUID,
+    val id: UUID?,
     @Column(name = "user_name", nullable = false)
     var userName: String,
     @Column(name = "avatar")
