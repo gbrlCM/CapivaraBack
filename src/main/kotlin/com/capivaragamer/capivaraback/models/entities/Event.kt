@@ -10,7 +10,7 @@ class Event(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, unique = true, nullable = false)
-    val id: UUID,
+    val id: UUID?,
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "creator_id", nullable = false)

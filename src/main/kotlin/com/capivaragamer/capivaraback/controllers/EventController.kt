@@ -9,17 +9,17 @@ import java.util.*
 @RestController
 class EventController(val repository: EventRepository) {
 
-    @GetMapping("/")
+    @GetMapping("/event")
     fun findAll(): List<Event> {
         return repository.findAll()
     }
 
-    @GetMapping("/User:{id}")
+    @GetMapping("/event/user:{id}")
     fun findEventByUserId(@PathVariable id:UUID): List<Event>{
         return repository.findByCreatorId(id)
     }
 
-    @RequestMapping(value = ["/Create"], method = [RequestMethod.POST])
+    @RequestMapping(value = ["/event/Create"], method = [RequestMethod.POST])
     fun create(@RequestBody newEvent: Event): Event {
         return repository.save(newEvent)
     }
