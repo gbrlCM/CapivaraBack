@@ -20,7 +20,7 @@ class UserController(val repository: UserRepository) {
         return repository.save(newUser)
     }
 
-    @PutMapping("/game/update")
+    @PutMapping("/user/update")
     fun updateEvent(@RequestBody newUser: User): User {
         repository.save(newUser)
         return newUser;
