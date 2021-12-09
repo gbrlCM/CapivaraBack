@@ -44,5 +44,6 @@ class EventController(val repository: EventRepository) {
 
         return repository.findById(id)
     }
+
 }
 
