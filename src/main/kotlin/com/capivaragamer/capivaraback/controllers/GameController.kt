@@ -26,4 +26,10 @@ class GameController(val repository: GameRepository){
         return newGames
     }
 
+    @PutMapping("/game/update")
+    fun updateEvent(@RequestBody newGame: Game): Game {
+        repository.save(newGame)
+        return newGame;
+    }
+
 }

@@ -2,6 +2,7 @@ package com.capivaragamer.capivaraback.controllers
 
 import com.capivaragamer.capivaraback.models.entities.Address
 import com.capivaragamer.capivaraback.models.entities.Game
+import com.capivaragamer.capivaraback.models.entities.User
 import com.capivaragamer.capivaraback.models.repositories.AdressRepository
 import org.springframework.web.bind.annotation.*
 
@@ -15,5 +16,11 @@ class AddressController(val repository: AdressRepository) {
     @RequestMapping(value = ["/address/create"], method = [RequestMethod.POST])
     fun create(@RequestBody newAddress: Address): Address {
         return repository.save(newAddress)
+    }
+
+    @PutMapping("/address/update")
+    fun updateEvent(@RequestBody newAddress: Address): Address {
+        repository.save(newAddress)
+        return newAddress;
     }
 }
