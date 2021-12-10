@@ -11,6 +11,8 @@ class User (
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, unique = true, nullable = false)
     val id: UUID?,
+    @Column(name= "apple_id", nullable = false)
+    val appleId: String,
     @Column(name = "user_name", nullable = false)
     var userName: String,
     @Column(name = "avatar")
