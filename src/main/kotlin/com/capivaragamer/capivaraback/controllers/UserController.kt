@@ -26,4 +26,10 @@ class UserController(val repository: UserRepository) {
         return newUser;
     }
 
+    @GetMapping("/user/login")
+    fun loginUser(@RequestBody user: User): User{
+
+        return user
+    }
+
 }
