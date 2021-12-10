@@ -61,6 +61,24 @@ class Event(
     @Column(name = "event_start_date", nullable = false)
     val eventStartDate: Date,
 
+    @Column(name = "type_event", nullable = false)
+    val typeEvent: String,
+
+    @Column(name = "link_contato", nullable = false)
+    val linkContato: String?,
+
+    @Column(name = "type_stream", nullable = true)
+    val typeStream: String,
+
+    @Column(name = "link_stream", nullable = true)
+    val linkStream: String,
+
+    @Column(name = "game_plataform", nullable = false)
+    val gamePlataform: String,
+
+    @Column(name = "time_size", nullable = false)
+    var timeSize: Int,
+
     @OneToOne(optional = false, orphanRemoval = true)
     @JoinColumn(name = "address_id", nullable = false)
     var address: Address
