@@ -28,7 +28,7 @@ class EventController(val repository: EventRepository) {
     }
 
     @PutMapping("/event/update")
-    fun updateEvent(@RequestBody newEvent: Event,): Event{
+    fun updateEvent(@RequestBody newEvent: Event): Event{
             repository.save(newEvent)
             return newEvent;
     }
@@ -43,6 +43,16 @@ class EventController(val repository: EventRepository) {
         }
 
         return repository.findById(id)
+    }
+
+    @GetMapping("/event/type/{tp}")
+    fun findEventByType(@PathVariable tp:String): List<Event>{
+        return  repository.findEventByEventType(tp)
+    }
+
+    @GetMapping("/event/game/{GameId}")
+    fun findEventByGame(@PathVariable GameId:UUID): List<Event>{
+        return  repository.findEventByGame_Id(GameId)
     }
 
 }

@@ -1,12 +1,12 @@
 package com.capivaragamer.capivaraback.controllers
 
-import com.capivaragamer.capivaraback.models.entities.Event
-import com.capivaragamer.capivaraback.models.entities.Game
 import com.capivaragamer.capivaraback.models.entities.User
 import com.capivaragamer.capivaraback.models.repositories.UserRepository
-import org.springframework.stereotype.Repository
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.*
+
 
 @RestController
 class UserController(val repository: UserRepository) {
@@ -30,6 +30,20 @@ class UserController(val repository: UserRepository) {
     fun loginUser(@RequestBody user: User): User{
 
         return user
+    }
+
+    @DeleteMapping("/user/{id}/delete")
+    fun deleteUser(@PathVariable id: UUID): ResponseEntity<User>{
+        var user = repository.findById(id)
+        return if(user.isPresent){
+            repository.deleteEventByUserId(id)
+            repository.deleteById(id)
+            ResponseEntity<User>(HttpStatus.OK)
+        } else{
+            ResponseEntity<User>(HttpStatus.NOT_FOUND)
+        }
+
+
     }
 
 }
