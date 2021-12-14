@@ -22,6 +22,11 @@ class EventController(val repository: EventRepository) {
         return repository.findByCreatorId(id)
     }
 
+    @GetMapping("/event/user/{id}/current")
+    fun findByCreatorIdOrderByDateAndOnlyCurrent(@PathVariable id:UUID):List<Event>{
+        return repository.findByCreatorIdOrderByDateAndOnlyCurrent(id)
+    }
+
     @PostMapping("/event/create")
     fun create(@RequestBody newEvent: Event): Event {
         return repository.save(newEvent)
