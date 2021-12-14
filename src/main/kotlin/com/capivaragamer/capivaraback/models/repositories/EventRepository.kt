@@ -19,4 +19,7 @@ fun findEventByEventType(@Param("event_type") eventType: String): List<Event>
 
 fun findEventByGame_Id(@Param("game_id") game: UUID ): List<Event>
 
+@Query("select e from Event e left join e.participants participants where (participants.id = :id or e.creator.id = :id) and e.date>CURRENT_DATE order by e.date ASC ")
+fun findByCreatorIdOrderByDateAndOnlyCurrent(@Param("id") id: UUID): List<Event>
+
 }
