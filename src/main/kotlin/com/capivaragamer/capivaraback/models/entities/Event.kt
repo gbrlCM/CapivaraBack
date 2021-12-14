@@ -78,8 +78,4 @@ class Event(
 
     @Column(name = "time_size", nullable = false)
     var timeSize: Int,
-
-    @OneToOne(optional = false, orphanRemoval = true)
-    @JoinColumn(name = "address_id", nullable = false)
-    var address: Address
     )
