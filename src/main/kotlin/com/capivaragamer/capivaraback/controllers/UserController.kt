@@ -43,7 +43,10 @@ class UserController(val repository: UserRepository) {
             ResponseEntity<User>(HttpStatus.NOT_FOUND)
         }
 
-
     }
 
+    @GetMapping("/user/AppleId/{AppleId}")
+    fun getByAppleID(@PathVariable AppleId:String): User {
+        return repository.findByAppleId(AppleId)
+    }
 }
