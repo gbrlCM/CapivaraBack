@@ -77,5 +77,5 @@ class Event(
     val gamePlataform: String,
 
     @Column(name = "time_size", nullable = false)
-    var timeSize: Int,
+    var teamSize: Int,
     )
