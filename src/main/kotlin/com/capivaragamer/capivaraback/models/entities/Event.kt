@@ -56,25 +56,25 @@ class Event(
     var date: Date,
 
     @Column(name = "lobby_entrance_date", nullable = false)
-    var lobbyEntranceDate: Date,
+    var lobbyEntranceDate: Double,
 
     @Column(name = "event_start_date", nullable = false)
-    val eventStartDate: Date,
+    val eventStartDate: Double,
 
-    @Column(name = "type_event", nullable = false)
-    val typeEvent: String,
+    @Column(name = "contact_link", nullable = false)
+    val contactLink: String?,
 
-    @Column(name = "link_contato", nullable = false)
-    val linkContato: String?,
+    @Column(name = "contact_type")
+    val contactType: String,
 
-    @Column(name = "type_stream", nullable = true)
-    val typeStream: String,
+    @Column(name = "type_streaming", nullable = true)
+    val streamingType: String?,
 
     @Column(name = "link_stream", nullable = true)
-    val linkStream: String,
+    val streamingLink: String?,
 
     @Column(name = "game_plataform", nullable = false)
-    val gamePlataform: String,
+    val gamePlatform: String,
 
     @Column(name = "time_size", nullable = false)
     var teamSize: Int,
