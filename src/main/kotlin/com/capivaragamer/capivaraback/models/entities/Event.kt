@@ -31,7 +31,7 @@ class Event(
     var description: String,
 
     @Column(name = "cover_url")
-    var coverUrl: String,
+    var coverUrl: String?,
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "game_id", nullable = false)
