@@ -17,7 +17,8 @@ class UserController(val repository: UserRepository) {
 
     @RequestMapping(value = ["/user/create"], method = [RequestMethod.POST])
     fun create(@RequestBody newUser: User): User {
-        return repository.save(newUser)
+        repository.save(newUser)
+        return repository.findByAppleId(newUser.appleId)
     }
 
     @PutMapping("/user/update")
