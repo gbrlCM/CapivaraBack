@@ -12,7 +12,7 @@ import java.util.*
 interface EventRepository : JpaRepository<Event, UUID> {
 
 
-@Query("select e from Event e inner join e.participants participants where participants.id = :id or e.creator.id = :id")
+@Query("select e from Event e left join e.participants participants where participants.id = :id or e.creator.id = :id")
 fun findByCreatorId(@Param("id") id: UUID): List<Event>
 
 fun findEventByEventType(@Param("event_type") eventType: String): List<Event>

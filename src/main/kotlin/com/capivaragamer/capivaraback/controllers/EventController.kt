@@ -19,7 +19,8 @@ class EventController(val repository: EventRepository) {
 
     @GetMapping("/event/user/{id}")
     fun findEventByUserId(@PathVariable id: UUID): List<Event>{
-        return repository.findByCreatorId(id)
+        var list = repository.findByCreatorId(id)
+        return list.distinct()
     }
 
     @GetMapping("/event/user/{id}/current")
